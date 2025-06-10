@@ -12,17 +12,16 @@
 ## Выполните следующие шаги для того, чтобы получить рабочую базу данных и выполнить тесты
 
 ### Шаг 1
-Установите базу данных и подключитесь к ней, например на стороне сервера.
+Создайте нового пользователя и предоствьте ему необходимые права доступа (поменяйте значение на нужные вам):
 
-```bash
-sudo -i -u postgres
-psql
-```
-
-Далее создайте нового пользователя, например, следующим образом:
 ```sql
 CREATE USER user_store WITH PASSWORD 'user_password';
 CREATE DATABASE store OWNER user_store;
+```
+
+Пример команды для подключения к DB:
+```bash
+psql -h <host_ip> -p <port> -U <user> -d store
 ```
 
 ### Шаг 2
@@ -47,13 +46,6 @@ SELECT o.date_created, SUM(op.quantity)
 FROM orders AS o JOIN order_product AS op ON o.id = op.order_id
 WHERE o.status = 'shipped' AND o.date_created > NOW() - INTERVAL '7 day'
 GROUP BY o.date_created;
-```
-
-## Полезные команды
-
-### Подключение к DB:
-```bash
-psql -h <host_ip> -p <port> -U user_store -d store
 ```
 
 ### Спасибо за внимание!
