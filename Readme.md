@@ -29,5 +29,6 @@ DB_PASSWORD=password_store
 ```
 
 ### Описание миграций
-`V001__create_tables.sql` - повторяет структуру, которая есть у начальной DB
-`V002__change_schema.sql` - изменение структуры базы данных, удаление неиспользуемых таблиц
+`migrations/V001__create_tables.sql` - повторяет структуру, которая есть у начальной DB
+`migrations/V002__change_schema.sql` - изменение структуры базы данных, удаление неиспользуемых таблиц
+`migrations/V003__insert_data.sql` - содержит данные
