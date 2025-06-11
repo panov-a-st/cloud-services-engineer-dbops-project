@@ -24,6 +24,19 @@ CREATE DATABASE store OWNER user_store;
 psql -h <host_ip> -p <port> -U <user> -d store
 ```
 
+Полезные команды для доступа к DB со стороны системы:
+
+```bash
+sudo -i -u postgres
+psql
+```
+
+Если вы под root, то можно сделать так 
+```bash
+su - postgres
+psql
+```
+
 ### Шаг 2
 
 Добавьте в Github Action secrets следующие данные
